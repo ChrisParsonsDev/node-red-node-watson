@@ -16,7 +16,7 @@
 
 module.exports = function (RED) {
   var cfenv = require('cfenv'),
-    ConversationV1 = require('watson-developer-cloud/conversation/v1'), serviceUtils = require('../../utilities/service-utils'),
+    ConversationV1 = require('watson-developer-cloud/conversation/v1'),
     service = null, sUsername = null, sPassword = null;
 
   service = cfenv.getAppEnv().getServiceCreds(/conversation/i);
@@ -155,7 +155,6 @@ module.exports = function (RED) {
         node.context().flow.set('context', body.context);
       }
     }
-    msg.serviceUTILS = serviceUtils.checkServiceBound('conversation')
     node.send(msg);
     node.status({});
   }
