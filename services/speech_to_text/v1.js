@@ -23,7 +23,7 @@ module.exports = function (RED) {
   var fileType = require('file-type');
   //var watson = require('watson-developer-cloud');
   var sttV1 = require('watson-developer-cloud/speech-to-text/v1');
-  var serviceUtils = require('../../utilities/service-utils'),
+  var serviceUtils = require('../../utilities/service-utils');
 
   var service = cfenv.getAppEnv().getServiceCreds(/speech to text/i);
 
@@ -149,7 +149,7 @@ module.exports = function (RED) {
               });
             });
           }
-          node.serviceUTILS = serviceUtils.checkServiceBound('speech-to-text')
+          node.serviceUTILS = serviceUtils.checkServiceBound('speech-to-text');
           node.send(msg);
         }
       };
