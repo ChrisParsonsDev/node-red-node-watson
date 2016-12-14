@@ -20,11 +20,7 @@ function ServiceUtils() {}
 ServiceUtils.prototype = {
   //function to determine if WDC service is bound
   checkServiceBound: function(serviceName) {
-    //TLDN
-    var tldn = 'https://gateway.watsonplatform.net/';
-    //Service URL
-    var serviceURL = tldn+serviceName+'(\\/)'+'((?:[a-z][a-z0-9_]*))';
-    var domainRegex = new RegExp(serviceURL,["i"]);
+    var regex = '(http|https)(://)([^\/]+)(/)('+serviceName+').*';
     return appEnv.getServiceURL(serviceName);
   },
 
