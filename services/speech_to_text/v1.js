@@ -149,7 +149,7 @@ module.exports = function (RED) {
               });
             });
           }
-          msg.serviceUTILS = serviceUtils.checkServiceBound('speech-to-text');;
+          msg.serviceUTILS = serviceUtils.checkServiceBound('speech-to-text');
           node.send(msg);
         }
       };
