@@ -24,7 +24,8 @@ ServiceUtils.prototype = {
     var store = [];
     var services = appEnv.getServices();
     for (var service in services) {
-      store.push(service.credentials.url);
+      JSON.parse(service)
+      store.push(service.credentials);
       // if (service.hasOwnProperty('credentials')) {
       //   store.push(service.credentials);
       // }
