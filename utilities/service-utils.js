@@ -29,7 +29,7 @@ ServiceUtils.prototype = {
       //   store.push(service.credentials);
       // }
     }
-    return store;
+    return services;
   },
 
 };
