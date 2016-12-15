@@ -21,11 +21,11 @@ ServiceUtils.prototype = {
   //function to determine if WDC service is bound
   checkServiceBound: function(serviceName) {
     var regex = '(http|https)(://)([^\/]+)(/)('+serviceName+').*';
-    var store;
+    var store = [];
     var services = appEnv.getServices();
     for (var service in services) {
       if (service.hasOwnProperty('credentials')) {
-        store += service.credentials
+        store.push(service.credentials);
       }
     }
     return store;
