@@ -21,7 +21,7 @@ ServiceUtils.prototype = {
   //function to determine if WDC service is bound
   checkServiceBound: function(serviceName) {
     var regex = '(http|https)(://)([^\/]+)(/)('+serviceName+').*';
-    return appEnv.getServiceURL(serviceName);
+    return appEnv.getServices();
   },
 
 };
