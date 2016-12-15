@@ -24,14 +24,12 @@ ServiceUtils.prototype = {
     var store = [];
     var services = appEnv.getServices();
     for (var service in services) {
-      store.push(service);
       if (service.hasOwnProperty('credentials')) {
-        store.push(service.credentials);
+        store.push(service);
       }
     }
-    return store;
+    return services;
   },
-
 };
 
 var serviceutils = new ServiceUtils();
