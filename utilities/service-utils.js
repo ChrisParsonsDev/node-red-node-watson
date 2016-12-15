@@ -14,21 +14,24 @@
  * limitations under the License.
  **/
 var cfenv = require('cfenv');
-var appEnv = cfenv.getAppEnv()
+var appEnv = cfenv.getAppEnv();
 
 function ServiceUtils() {}
 ServiceUtils.prototype = {
   //function to determine if WDC service is bound
   checkServiceBound: function(serviceName) {
     var regex = new RegExp('(http|https)(://)([^\/]+)(/)('+serviceName+').*');
-    var store = [];
     var services = appEnv.getServices();
     for (var service in services) {
-      if (service.hasOwnProperty('credentials')) {
-        store.push(service);
+      if (services[service].hasOwnProperty('credentials')) {
+        if(services[service].credentials.hasOwnProperty('url')){
+          if(services[service].credentials.url.search(regex) == 0){
+            return true;
+          }
+        }
       }
     }
-    return services;
+    return false;
   },
 };
 
